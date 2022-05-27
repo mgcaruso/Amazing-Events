@@ -44,14 +44,12 @@ async function fetchData(){
     
     
     
-        console.log(orderByCategory(allCategories, pastEvents))
-        console.log(orderByCategory(allCategories, upcomingEvents))
 
         //Imprimir los datos en las tablas (past y upcoming events)
         let statisticsObjUpcoming = orderByCategory(allCategories, upcomingEvents);
         let statisticsObjPast = orderByCategory(allCategories, pastEvents)
-        displayCategoriesStatistics(tbodyUp,statisticsObjUpcoming )
-        displayCategoriesStatistics(tbodyPast, statisticsObjPast )
+        displayCategoriesStatistics(tbodyUp,statisticsObjUpcoming, "Estimated: " )
+        displayCategoriesStatistics(tbodyPast, statisticsObjPast, "" )
         
         // displayCategoriesStatistics(tbodyUp,orderByCategory(allCategories, upcomingEvents))
     
@@ -107,14 +105,14 @@ function displayDataOnTable(highestAtt,lowestAtt,maxCapacity){
 
 //Función que imprime los valores de la segunda tabla.
 
-function displayCategoriesStatistics(box,arr){
+function displayCategoriesStatistics(box,arr,estimated){
     arr.forEach( category => {
         if(Object.keys(category).length !== 0){
             let tr = document.createElement("tr");
             tr.classList.add("centered")
             tr.innerHTML = `<td>${category.category}</td> 
-            <td>$ ${category.revenue}</td>
-            <td>${(category["attendance average"]).toFixed(2)} %</td>`
+            <td>${estimated} $ ${category.revenue}</td>
+            <td>${estimated} ${(category["attendance average"]).toFixed(2)} %</td>`
             box.appendChild(tr);
         }else{
             return; //si la categoria (el objeto dentro del arreglo) está vacía, no la agrega en la tabla.

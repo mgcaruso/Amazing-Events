@@ -26,11 +26,10 @@ async function fetchData(){
             return newObj
         } )
 
-
-        let highestAttendanceEvent = percentageAttendance.sort( (a,b) => b["percentage of assistance"] - a["percentage of assistance"])[0];
-        let lowestPercentageEvent = percentageAttendance.sort( (a,b) => a["percentage of assistance"] - b["percentage of assistance"])[0];
+        let percentage = percentageAttendance.sort( (a,b) => b["percentage of assistance"] - a["percentage of assistance"]);
+        let highestAttendanceEvent = percentage[0];
+        let lowestPercentageEvent = percentage[percentage.length - 1];
         let maxCapacityEvent = dataForDetails.sort( (a,b) => Number(b.capacity) - Number(a.capacity))[0];
-        console.log(maxCapacityEvent)
 
         displayDataOnTable(highestAttendanceEvent, lowestPercentageEvent, maxCapacityEvent)
 
@@ -96,10 +95,10 @@ function orderByCategory(arrCateg,arrEv){
 
 //Función que muestra los valores de la primera tabla.
 function displayDataOnTable(highestAtt,lowestAtt,maxCapacity){
-    generalTr.innerHTML = `<td>${highestAtt.name}: ${highestAtt["percentage of assistance"]}% </td>`
-    generalTr.innerHTML += `<td>${lowestAtt.name}: ${lowestAtt["percentage of assistance"]}% </td>`
-    generalTr.innerHTML += `<td>${maxCapacity.name}: ${maxCapacity.capacity} </td>`
-    
+    generalTr.innerHTML = `<td>${highestAtt.name}: ${highestAtt["percentage of assistance"]}% </td>
+    <td>${lowestAtt.name}: ${lowestAtt["percentage of assistance"]}% </td> 
+    <td>${maxCapacity.name}: ${maxCapacity.capacity} </td>
+    `
 }
 
 

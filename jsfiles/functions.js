@@ -23,9 +23,9 @@ function displayCards(container,array){
 
 
 //Función que devuelve un array de eventos según la fecha (según sea menor o mayor que la fecha actual del obj "data")
-function filterEventsbyDate(array){
+function filterEventsbyDate(array,fecha){
     return array.filter( event => {
-        return pastEventsBox ? event.date < data.fechaActual : event.date > data.fechaActual;
+        return pastEventsBox ? event.date < fecha : event.date > fecha;
     })
 
 }

@@ -25,8 +25,8 @@ async function getData() {
         arrOfEvents = dataFromAPI.events; //array que viene directo del database
         /*Guardamos en las siguientes variables el resultado de la función filterEventsByDate que ordena los eventos
         segun la fechaActual que figura en el json*/
-        pastEvents = filterEventsbyDate(arrOfEvents);
-        upcomingEvents = filterEventsbyDate(arrOfEvents);
+        pastEvents = filterEventsbyDate(arrOfEvents,dataFromAPI.currentDate);
+        upcomingEvents = filterEventsbyDate(arrOfEvents,dataFromAPI.currentDate);
 
         //traemos el inputSearch del html
         inputSearch = document.querySelector(".search-input");

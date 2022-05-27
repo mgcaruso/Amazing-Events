@@ -369,11 +369,14 @@ div.btn{
 
 .table td, .table th{
     color: #C0C0C0;
+    
 }
 
 .table th{
     border-bottom: 2px solid #C0C0C0;
     text-transform: uppercase;
+    color: rgb(204, 204, 204) !important;
+    background-color: rgba(255, 0, 119, 0.08) !important;
 }
 
 .table td:hover{
@@ -535,3 +538,22 @@ input[type="checkbox"] {
 .subtitle-th{
     font-size: smaller;
 }
+
+/*Centering contents within table*/
+.centered, table th{
+    text-align: center;
+}
+
+
+table{
+    table-layout: fixed;
+    width: 250px;
+}
+
+th, td {
+    border: 1px solid #C0C0C0;
+    width: 100px;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+

@@ -15,7 +15,6 @@ function displayDetails(box,arr){
     id = id.split("=");
     id = id[1];
         arr.filter ( event => {
-            console.log(id, event._id)
             if(id == event["_id"]){
                     box.innerHTML = ` <div class="row d-flex flex-sm-column flex-md-column flex-lg-row flex-xl-row flex-xxl-row py-2 justify-content-center" style="min-height: 13rem;">
                     <div class="col-sm-12 col-md-23 col-lg-5 col-xl-5 col-xxl-5 details-pic" style="min-height: 22rem;">

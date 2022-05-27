@@ -11,7 +11,7 @@ function displayCards(container,array){
                 <div class="box1 card-body">
                 <h5 class="card-title text-start">${event.name}</h5>
                 <h6 class="card-text">${event.description}</h6>
-                <h6 class="card-text">${event.date}</h6>
+                <h6 class="card-text">Date: ${event.date}</h6>
                 </div>
                 <div class="box2 card-body d-flex align-items-center justify-content-between gap-2">
                 <p class="card-text m-0">$${event.price}</p>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <header>
+        <!-- HEADER Section 1 -->
+        <div class="container-fluid header-s-1">
+            <div class="row flex-column flex-lg-row">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-6 col-xxl-6">
+                    <a class="navbar-brand flex-grow-2 px-3" href="index.html"><img class="header-logo" src="../assets/logo.png" alt="Logo"></a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <div class="container-fluid d-flex">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse d-flex justify-content-sm-end justify-content-md-start justify-content-lg-end px-4" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link active home" aria-current="page" href="/index.html">HOME</a>
+                                    </li>
+                                    <li class="dropdown nav-item">
+                                        <a class="btn dropdown-toggle active events-btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            EVENTS
+                                        </a>
+                                    
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><a class="dropdown-item nav-link" href="../subPages/upcoming-events.html">UPCOMING EVENTS</a></li>
+                                            <li><a class="dropdown-item nav-link" href="../subPages/past-events.html">PAST EVENTS</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="../subPages/contact.html">CONTACT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="../subPages/stats.html">STATS</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEADER Section 2 -->
+
+        <div class="container-fluid header-s-2 pb-2">
+            <div class="row">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2 col-xxl-2 d-flex justify-content-center align-items-center">
+                    <a href="/index.html">
+                        <img src="../assets/icons/left.png" alt="right arrow">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-8 col-xl-8 col-xxl-8 d-flex justify-content-center align-items-center">
+                    <div class="text-container">
+                        <div class="typed-out">
+                            <h2>Details</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2 col-xxl-2 d-flex justify-content-center align-items-center">
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="d-flex align-items-center justify-content-center">
+
+        <div id="details-box" class="container py-3">
+            <!-- <div class="row d-flex flex-sm-column flex-md-column flex-lg-row flex-xl-row flex-xxl-row py-2 justify-content-center" style="min-height: 13rem;">
+                <div class="col-sm-12 col-md-23 col-lg-5 col-xl-5 col-xxl-5 details-pic" style="min-height: 22rem;">
+                    <div class="image-box h-100 w-100" style="background-image: url(../assets/Feria-de-comidas7.jpg); min-height: 15rem;"></div>
+                </div>
+                <div class="big-card-text col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column align-items-center justify-content-center p-4" style="min-height: 13rem;">
+                    <h5 class="card-title">${event.name}</h5>
+                    <div class="big-cat-box d-flex flex-column">
+                        <div class="box d-flex flex-lg-row">
+                            <p class="card-text w-50">Name:</p>
+                            <span class="info w-50">${event.name}</span>
+                        </div>
+                        <div class="box">
+                            <p class="card-text w-50">Date:</p>
+                            <span class="info w-50">${event.date}</span>
+                        </div>
+                        <div class="box">
+                            <p class="card-text w-50">Description:</p>
+                            <span class="info w-50">${event.description}</span>
+                        </div>
+                        <div class="box">
+                            <p class="card-text w-50">Category:</p>
+                            <span class="info w-50">${event.category}</span>
+                        </div>
+                        <div class="box">
+                            <p class="card-text w-50">Place:</p>
+                            <span class="info w-50">${event.place}</span>
+                        </div>
+                        <div class="box">
+                            <p class="card-text w-50">Capacity:</p>
+                            <span class="info w-50">${event.capacity}</span>
+                        </div>  
+                        <div class="box">
+                            <p class="card-text w-50">Assistance or estimate:</p>
+                            <span class="info w-50">${event.assistance}</span>                        
+                        </div>  
+                        <div class="box">
+                            <p class="card-text w-50">Price:</p>
+                            <span class="info w-50">$${event.price}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>` -->
+        </div>
+
+
+
+    </main>
+    <footer class="d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row flex-sm-column flex-md-column flex-lg-row flex-xl-row flex-xxl-row mx-4">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex justify-content-around">
+                    <a href="#">
+                        <i class="instagram bi bi-instagram fs-5 mx-3"></i>
+                    </a>
+                    <a href="#">
+                        <i class="facebook bi bi-facebook fs-5 mx-3"></i>
+                    </a>
+                    <a href="#">
+                        <i class="whatsapp bi bi-whatsapp fs-5 mx-3"></i>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 d-flex align-items-center justify-content-center">
+                    <p class="m-0 text-center">Cohort 28 - Full Stack MERN - MindHub</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../JSfiles/AmazingEvents.js"></script>
+    <script src="../JSfiles/functions.js"></script>
+    <script src="/JSfiles/details.js"></script> 
+
+
+
+</body>
+</html>

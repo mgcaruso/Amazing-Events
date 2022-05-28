@@ -64,28 +64,28 @@ function orderByCategory(arrCateg,arrEv){
     return arrCateg.map( categoria => {
         let insideObj = {};
         let eventVariable;
+        //Recorremos el array de eventos
+        let total = 0;
         arrEv.forEach( evento => {
+            //Chequeamos si la categoria del evento es igual a la categoria del array de categorias.
             if(evento.category === categoria){
-                //categoria
+                /*Agregamos una propiedad al objeto creado anteriormente con el nombre de la categoria del evento en cada
+                iteración*/
                 insideObj.category = categoria;
 
-                //recaudacion total
-                insideObj.revenue = arrEv.filter( e => e.category === categoria ).reduce( (acc,evento) => {
-                    eventVariable = evento.assistance ? evento.assistance : evento.estimate;
-                    eventVariable = Number(eventVariable);
-                    acc += evento.price * eventVariable;
-                    return acc;
-                },0),
-
-                //eventos dentro de la categoria
+                eventVariable = evento.assistance ? evento.assistance : evento.estimate;
+                evento.assistance = Number(evento.assistance);
+                evento.estimate = Number(evento.estimate);
+                evento.price = Number(evento.price)
+                /*Agregamos otra propiedad que indica la recaudacion total de esa categoria*/
+                insideObj.revenue = 0;
+                insideObj.revenue += (evento.price * Number(eventVariable));
                 insideObj.eventos = arrEv.filter( e => e.category === categoria);
-
-                //porcentaje total de asistencia
-                insideObj["attendance average"] = arrEv.filter(e => e.category === categoria).map( e => (`${e.assistance ? e.assistance : e.estimate}`*100)/e.capacity).reduce( (acc,item) => {
-                    acc += item
-                    return acc
-                })
-                insideObj["attendance average"] = insideObj["attendance average"]/insideObj.eventos.length;
+                // //porcentaje total de asistencia
+                 total += ((eventVariable * 100)/evento.capacity) //porentaje de cada evento
+                console.log(insideObj.eventos)
+                insideObj["attendance average"] = Number(total)/insideObj.eventos.length
+                console.log(insideObj)
             }
         }) 
         return insideObj;

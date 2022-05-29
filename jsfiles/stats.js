@@ -5,7 +5,7 @@ var generalTr = document.querySelector("#general-tr");
 
 async function fetchData(){
     
-    await fetch(`https://amazing-events.herokuapp.com/api/events`)
+    await fetch('https://amazing-events.herokuapp.com/api/events')
     .then( resp => resp.json())
     .then( json => {
 
@@ -47,8 +47,8 @@ async function fetchData(){
         //Imprimir los datos en las tablas (past y upcoming events)
         let statisticsObjUpcoming = orderByCategory(allCategories, upcomingEvents);
         let statisticsObjPast = orderByCategory(allCategories, pastEvents)
-        displayCategoriesStatistics(tbodyUp,statisticsObjUpcoming, "Estimated: " )
-        displayCategoriesStatistics(tbodyPast, statisticsObjPast, "" )
+        displayCategoriesStatistics(tbodyUp,statisticsObjUpcoming)
+        displayCategoriesStatistics(tbodyPast, statisticsObjPast)
         
         // displayCategoriesStatistics(tbodyUp,orderByCategory(allCategories, upcomingEvents))
     
@@ -66,6 +66,7 @@ function orderByCategory(arrCateg,arrEv){
         let eventVariable;
         //Recorremos el array de eventos
         let total = 0;
+        let totalRevenue = 0;
         arrEv.forEach( evento => {
             //Chequeamos si la categoria del evento es igual a la categoria del array de categorias.
             if(evento.category === categoria){
@@ -79,13 +80,15 @@ function orderByCategory(arrCateg,arrEv){
                 evento.price = Number(evento.price)
                 /*Agregamos otra propiedad que indica la recaudacion total de esa categoria*/
                 insideObj.revenue = 0;
-                insideObj.revenue += (evento.price * Number(eventVariable));
+                
                 insideObj.eventos = arrEv.filter( e => e.category === categoria);
-                // //porcentaje total de asistencia
+                // insideObj.revenue += (evento.price * Number(eventVariable));
+                totalRevenue += (evento.price * Number(eventVariable));
+                insideObj.revenue = Number((totalRevenue/insideObj.eventos.length).toFixed(2));
+
+                // porcentaje total de asistencia
                  total += ((eventVariable * 100)/evento.capacity) //porentaje de cada evento
-                console.log(insideObj.eventos)
                 insideObj["attendance average"] = Number(total)/insideObj.eventos.length
-                console.log(insideObj)
             }
         }) 
         return insideObj;
@@ -104,14 +107,14 @@ function displayDataOnTable(highestAtt,lowestAtt,maxCapacity){
 
 //Función que imprime los valores de la segunda tabla.
 
-function displayCategoriesStatistics(box,arr,estimated){
+function displayCategoriesStatistics(box,arr){
     arr.forEach( category => {
         if(Object.keys(category).length !== 0){
             let tr = document.createElement("tr");
             tr.classList.add("centered")
             tr.innerHTML = `<td>${category.category}</td> 
-            <td>${estimated} $ ${category.revenue}</td>
-            <td>${estimated} ${(category["attendance average"]).toFixed(2)} %</td>`
+            <td>$ ${category.revenue}</td>
+            <td>${(category["attendance average"]).toFixed(2)} %</td>`
             box.appendChild(tr);
         }else{
             return; //si la categoria (el objeto dentro del arreglo) está vacía, no la agrega en la tabla.
